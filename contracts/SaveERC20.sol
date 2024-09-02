@@ -2,8 +2,6 @@
 pragma solidity ^0.8.17;
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
-
-
 contract SaveERC20 {
     error AddressZeroDetected();
     error ZeroValueNotAllowed();
@@ -85,6 +83,7 @@ contract SaveERC20 {
         return IERC20(tokenAddress).balanceOf(address(this));
     }
 
+    //Third party withdrawal
     function transferFunds(address _to, uint256 _amount) external {
         if(msg.sender == address(0)) {
             revert AddressZeroDetected();
